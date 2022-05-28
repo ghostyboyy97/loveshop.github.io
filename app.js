@@ -356,8 +356,8 @@ function resizeHandler(){
 	let screensize = ws < hs ? ws : hs;
 	fontSize = 100 * screensize;
 	webpage.setAttribute('style', `font-size: ${fontSize}px`)
-
-	if (navigator.userAgent.toLowerCase().includes('phone')){
+	let isPhone = navigator.userAgent.toLowerCase()
+	if (isPhone.includes('iphone') || isPhone.includes('android')){
 		webpage.classList.add('phone')
 	} else {
 		webpage.classList.remove('phone')
