@@ -167,15 +167,19 @@ let confessionContainer;
 let webpage;
 let proposeRow;
 let ending;
-
-
+let introCover
+let welcomeMsg
+let cta1
+let cta2
+let welcomeDesc
+let beginButton
+let helpButton
 let creditBalance;
 
 function main() {
 	webpage = document.querySelector('html');
 	proposeRow = document.getElementById('proposeRow');
 	endingRow = document.getElementById('ending_ctr');
-
 	aaronInput = document.getElementById('aaron')
 	noActorInput = document.getElementById('actorNone')
 	zaraInput = document.getElementById('actorZara')
@@ -207,6 +211,144 @@ function main() {
 	endingRow.addEventListener('click', handleInput);
 	window.onresize = resizeHandler;
 	resizeHandler();
+
+	// entry handler
+	introCover = document.getElementById('intro_cover');
+	welcomeMsg = document.getElementById('welcome');
+	cta1 = document.getElementById('cta1')
+	cta2 = document.getElementById('cta2')
+	welcomeDesc = document.getElementById('desc')
+	beginButton = document.getElementById('begin')
+	helpButton = document.getElementById('help')
+
+
+	
+	showHelp();
+	beginButton.addEventListener('click', hideHelp)
+	helpButton.addEventListener('click', showHelp)
+
+
+
+
+}
+
+let showHelpTimer;
+let hideHelpTimer;
+let hasHelpShown = false;
+
+function clearHelp(clearTimers){
+	if (clearTimers){
+		clearTimeout(showHelpTimer)
+		clearTimeout(hideHelpTimer)
+	}
+	if (welcomeMsg.classList.length > 0){
+		if (welcomeMsg.classList.length > 1){
+			welcomeMsg.classList.remove('out').remove('active');
+			cta1.classList.remove('out').remove('active');
+			cta2.classList.remove('out').remove('active');
+			welcomeDesc.classList.remove('out').remove('active');
+			beginButton.classList.remove('out').remove('active');
+		} else {
+			welcomeMsg.classList.remove('active');
+			cta1.classList.remove('active');
+			cta2.classList.remove('active');
+			welcomeDesc.classList.remove('active');
+			beginButton.classList.remove('active');	
+		}
+	}
+
+}
+function showHelp(){
+	// clearHelp(true);
+	introCover.classList.add('active');
+	welcomeMsg.classList.add('active');
+	if (hasHelpShown){
+		welcomeMsg.classList.remove('active');
+		welcomeMsg.classList.remove('out');
+		cta1.classList.remove('active');
+		cta1.classList.remove('out');
+		cta2.classList.remove('active');
+		cta2.classList.remove('out');
+		welcomeDesc.classList.remove('active');
+		welcomeDesc.classList.remove('out');
+		beginButton.classList.remove('active');
+		beginButton.classList.remove('out');
+
+		showHelpTimer = setTimeout(function(){
+			welcomeMsg.classList.add('active');
+
+			setTimeout(function(){
+				cta1.classList.add('active');
+				setTimeout(function(){
+					cta2.classList.add('active');
+					setTimeout(function(){
+						welcomeDesc.classList.add('active');
+						setTimeout(function(){
+							beginButton.classList.add('active');
+							hasHelpShown = true
+						}, 150)
+					}, 150)
+				}, 150)
+			}, 150)
+		}, 500)
+	} else {
+		showHelpTimer = setTimeout(function(){
+			setTimeout(function(){
+				cta1.classList.add('active');
+				setTimeout(function(){
+					cta2.classList.add('active');
+					setTimeout(function(){
+						welcomeDesc.classList.add('active');
+						setTimeout(function(){
+							beginButton.classList.add('active');
+							hasHelpShown = true
+						}, 150)
+					}, 150)
+				}, 150)
+			}, 150)
+		}, 150)
+	}
+
+	// showHelpTimer = setTimeout(function(){
+	// 	setTimeout(function(){
+	// 		cta1.classList.add('active');
+	// 		setTimeout(function(){
+	// 			cta2.classList.add('active');
+	// 			setTimeout(function(){
+	// 				welcomeDesc.classList.add('active');
+	// 				setTimeout(function(){
+	// 					beginButton.classList.add('active');
+	// 					hasHelpShown = true
+	// 				}, 150)
+	// 			}, 150)
+	// 		}, 150)
+	// 	}, 150)
+	// }, 150)
+}
+
+function hideHelp(){
+	// clearHelp(true);
+	hideHelpTimer = setTimeout(function(){
+		welcomeMsg.classList.add('out');
+		setTimeout(function(){
+			cta1.classList.add('out');
+			setTimeout(function(){
+				cta2.classList.add('out');
+				setTimeout(function(){
+					welcomeDesc.classList.add('out');
+					setTimeout(function(){
+						beginButton.classList.add('out');
+						setTimeout(function(){
+							introCover.classList.remove('active');
+							// setTimeout(function(){
+							// 	clearHelp();
+							// }, 500)
+						}, 150)
+					}, 150)
+				}, 150)
+			}, 150)
+		}, 150)
+	}, 150)
 }
 
 function handleSubmit(inputDiv){
