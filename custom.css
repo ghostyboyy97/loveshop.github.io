@@ -1,0 +1,300 @@
+@font-face {
+	font-family: pxl;
+	src: url(./fonts/04B_30__.TTF) format('truetype');
+}
+
+@font-face {
+	font-family: app;
+	src: url(./fonts/Roboto-Regular.ttf) format('truetype');
+}
+
+html{
+	font-size: 100px;
+	font-family: app;
+	width: 100%;
+	height: 100%;
+}
+body{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	/* justify-content: center; */
+	align-items: center;
+	margin: 0;
+}
+.header{
+	font-size: 0.5em;
+	width: 100%;
+	height: 1em;
+	color: pink;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: pxl;
+}
+.bodyCtr{
+	display: grid;
+	grid-template-areas: 
+		"credits options"
+		"video options";
+	width: 100%;
+	height: 100%;
+	justify-items: center;
+	align-items: flex-start;
+	grid-template-columns: 1fr 1fr;
+}
+.credits{
+	font-family: pxl;
+	font-size: 0.5em;
+	display: flex;
+	align-items: center;
+	margin: 0.5em 0;
+	grid-area: credits;
+	align-self: flex-end;
+}
+.credit_text{
+	margin-right: 0.2em;
+}
+#creditBalance{
+	border: 2px solid black;
+	width: 1.8em;
+	height: 1.8em;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.video_ctr{
+	grid-area: video;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	align-self: flex-start;
+	position: relative;
+}
+iframe{
+	border: none;
+	background-color: black;
+}
+.input_container{
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	grid-area: options;
+	height: 100%;
+}
+.col{
+	display: flex;
+	flex-direction: column;
+	margin: 0.5em;
+	margin-top: -0.5em;
+}
+.row{
+	display: flex;
+	margin-left: 1.5em;
+}
+.row.inactive{
+	pointer-events: none;
+	opacity: 0.5;
+}
+label{
+	font-size: 0.2em;
+}
+.col_label{
+	font-size: 0.4em;
+	font-family: pxl;
+	text-align: center;
+	margin-top: 1em;
+}
+.col_lead{
+	font-size: 0.2em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+
+.button_ctr{
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	width: 110%;
+}
+
+.volume{
+	width: 0.75em;
+	height: 0.75em;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: pink;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: transform 0.15s ease-in-out;
+}
+.volume_on{
+	width: 0.5em;
+	height: 0.5em;
+	position: absolute;
+	opacity: 0;
+}
+
+.volume_off{
+	width: 0.5em;
+	height: 0.5em;
+	position: absolute;
+	
+}
+.volume_on img, .volume_off img{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+.volume.active .volume_on{
+	opacity: 1;
+}
+.volume.active .volume_off{
+	opacity: 0;
+}
+
+.lock img{
+	position: absolute;
+	width: 1em;
+	height: 1em;
+	top: 157px;
+	transform: translate(-50%, -50%);
+	animation: oscillate 3s linear infinite;
+}
+.lock.vidActive{
+	display: none !important;
+}
+
+
+
+#creditBalance.error{ 
+	color: red; 
+}
+
+#confessionContainer.invisible, #proposalContainer.invisible{
+	display: none;
+}
+#confessionContainer, #proposalContainer{
+	margin: 0;
+}
+
+input{
+	cursor: pointer;
+}
+
+iframe.invisible{
+	display: none
+}
+
+#submit, #dance, #ending{
+	font-size: 0.35em;
+	width: 10em;
+	border-radius: 10px;
+	background-color: pink;
+	height: 2em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	cursor: pointer;
+	margin: 2em 0;
+	font-family: pxl;
+	transition: transform 0.15s ease-in-out;
+	text-align: center;
+}
+#dance{
+	font-size: 0.25em;
+	height: calc(2rem * 0.35);
+	opacity: 0.5;
+}
+#ending_ctr{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: -1em;
+}
+#ending{
+	width: 13em;
+}
+#ending_ctr.invisible{
+	display: none;
+}
+#dance.active{
+	opacity: 1;
+}
+#submit.error { 
+	opacity: 0.5; 
+	pointer-events: none; 
+}
+#aaron.off{
+	opacity: 0.5;
+}
+.scaleDown{
+	transform: scale(0.9);
+}
+
+@media only screen and (max-width: 600px) {
+	body{
+		font-size: 2em;
+		overflow-y: auto;
+	}
+	iframe{
+		width: 320px;
+		height: 240px;
+	}
+	.lock img{
+		top: 120px;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	body{
+		font-size: 1.5em;
+		overflow-y: auto;
+	}
+	.bodyCtr{
+		grid-template-areas: 
+		"credits"
+		"video"
+		"options";
+		grid-template-columns: 1fr;
+	}
+	.col{
+		margin-top: 0;
+	}
+	.col_label{
+		margin-top: 0.5em;
+	}
+	.input_container{
+		align-items: flex-start;
+	}
+	#dance{
+		height: calc(2rem * 0.35 * 1.5);
+	}
+}
+
+@keyframes oscillate {
+	0% {
+		transform: translate(-50%, -50%);
+	}
+	25% {
+		transform: translate(-50%, -56%);
+	}
+	50% {
+		transform: translate(-50%, -50%);
+	}
+	75% {
+		transform: translate(-50%, -40%);
+	}
+	100% {
+		transform: translate(-50%, -50%);
+	}
+}

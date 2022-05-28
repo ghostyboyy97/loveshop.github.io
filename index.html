@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>LOVESHOPLOVESHOP</title>
+  <link type="text/css" rel="stylesheet" href="custom.css">
+  <script src="app.js" charset="utf-8"></script>
+</head>
+
+<body onload="main()">
+  <div class="header">LOVESHOPLOVESHOPLOVESHOPLOVESHOPLOVESHOPLOVESHOPLOVESHOPLOVESHOPLOVESHOPLOVESHOPLOVESHOP</div>
+  <div class="header">OVESHOPLOVESHOPLOVESHOPLOVESHOPLOVESHOPLOVESHOPLOVESHOPLOVESHOPLOVESHOPLOVESHOPLOVESHOP</div>
+  <div class="header">VESHOPLOVESHOPLOVESHOPLOVESHOPLOVESHOPLOVESHOPLOVESHOPLOVESHOPLOVESHOPLOVESHOPLOVESHOP</div>
+  <div class="bodyCtr">
+
+    <div class="credits">
+      <div class="credit_text">Current credits: </div>
+      <div id="creditBalance">9</div>
+    </div>
+  
+    <div class="video_ctr">
+      <div class="lock" id="lock"><img src="./assets/coin.png" alt=""></div>
+      <iframe id="youtube" width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div class="button_ctr">
+        <div id="submit">SHOW VIDEO</div>
+        <div class="volume active" id="volume" data-state="volume">
+          <div class="volume_on"><img src="./assets/volume_on.svg"></div>
+          <div class="volume_off"><img src="./assets/volume_off.svg"></div>
+        </div>
+        <div id="dance" data-state="dance">Make them dance!</div>
+      </div>
+      <div id="ending_ctr" class="invisible">
+        <div id="ending">See the ending</div>
+      </div>
+    </div>
+  
+    <div class="input_container">
+
+      <div class="col">
+        <div class="col_label">Cast</div>
+        <div class="col_lead">
+          <div class="lead">Leading Actor:</div>
+          <div id="aaron" data-state="aaron">Aaron</div>
+        </div>
+        <div class="col_label">Pick the co-star:</div>
+        <div class="row">
+          <input type="radio" checked id="actorNone" data-state="partner" name="actor" value="none" data-credits="0">
+          <label for="actorNone">None</label>
+        </div>
+        <div class="row">
+          <input type="radio" id="actorZara" data-state="partner" name="actor" value="zara" data-credits="2">
+          <label for="actorZara">Zara (2 tokens)</label>
+        </div>
+        <div class="row">
+          <input type="radio" id="actorBetty" data-state="partner" name="actor" value="betty" data-credits="5">
+          <label for="actorBetty">Betty (5 tokens)</label>
+        </div>
+        <div class="row">
+          <input type="radio" id="actorGary" data-state="partner" name="actor" value="gary" data-credits="6">
+          <label for="actorGary">Gary Pride (6 tokens)</label>
+        </div>
+        <div class="col_label">Pick the script</div>
+        <div class="row">
+          <input type="radio" checked id="storyConfess" data-state="story" name="story" value="confession" data-credits="0">
+          <label for="confess">Confession (0 tokens)</label>
+        </div>
+        <div class="row inactive" id="proposeRow">
+          <input type="radio" id="storyPropose" data-state="story" name="story" value="proposal" data-credits="6">
+          <label for="propose">Proposal (6 tokens)</label>
+        </div>
+  
+        <div class="col_label">Extras</div>
+        
+        <div class="col" id="confessionContainer">
+          
+          <div class="row">
+            <input type="radio" checked id="scriptBasic" data-state="confession_script" name="script" value="basic"
+              data-credits="0">
+            <label for="scriptBasic">Basic (0 tokens)</label>
+          </div>
+          <div class="row">
+            <input type="radio" id="scriptStandard" data-state="confession_script" name="script" value="standard"
+              data-credits="3">
+            <label for="scriptStandard">Standard (3 tokens)</label>
+          </div>
+          <div class="row">
+            <input type="radio" id="scriptEloquent" data-state="confession_script" name="script" value="eloquent"
+              data-credits="7">
+            <label for="scriptEloquent">Eloquent (7 tokens)</label>
+          </div>
+        </div>
+    
+        <div class="col invisible" id="proposalContainer">
+          <div class="row">
+            <input type="checkbox" id="propChoc" data-state="prop_chocolate" value="on" data-credits="1">
+          <label for="propChoc">Chocolates (1 token)</label>
+          </div>
+          <div class="row">
+            <input type="checkbox" id="propChamp" data-state="prop_champagne" value="on" data-credits="1">
+          <label for="propChamp">Champagne (1 token)</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+</body>
+
+</html>
