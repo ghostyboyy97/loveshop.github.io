@@ -94,6 +94,7 @@ iframe{
 .row{
 	display: flex;
 	margin-left: 1.5em;
+	align-items: center;
 }
 .row.inactive{
 	pointer-events: none;
@@ -282,7 +283,7 @@ iframe.invisible{
 }
 
 html.phone body{
-	font-size: 4em;
+	font-size: 2.5em;
 	overflow-y: auto;
 }
 html.phone .bodyCtr{
@@ -291,6 +292,7 @@ html.phone .bodyCtr{
 	"video"
 	"options";
 	grid-template-columns: 1fr;
+	margin-left: 0.8em;
 }
 html.phone .col{
 	margin-top: 0;
@@ -302,7 +304,7 @@ html.phone .input_container{
 	align-items: flex-start;
 }
 html.phone #dance{
-	height: calc(2rem * 0.35 * 4);
+	height: calc(2rem * 0.35 * 2.5);
 }
 html.phone iframe{
 	width: 5em;
@@ -316,6 +318,11 @@ html.phone #creditBalance{
 }
 html.phone label, html.phone .col_lead{
 	font-size: 0.3em;
+}
+html.phone input[type="radio"]{
+	width: 30px;
+	height: 30px;
+	margin-right: 10px;
 }
 
 @keyframes oscillate {
