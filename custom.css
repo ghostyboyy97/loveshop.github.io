@@ -281,6 +281,43 @@ iframe.invisible{
 	}
 }
 
+html.phone body{
+	font-size: 4em;
+	overflow-y: auto;
+}
+html.phone .bodyCtr{
+	grid-template-areas: 
+	"credits"
+	"video"
+	"options";
+	grid-template-columns: 1fr;
+}
+html.phone .col{
+	margin-top: 0;
+}
+html.phone .col_label{
+	margin-top: 0.5em;
+}
+html.phone .input_container{
+	align-items: flex-start;
+}
+html.phone #dance{
+	height: calc(2rem * 0.35 * 4);
+}
+html.phone iframe{
+	width: 5em;
+	height: 3em;
+}
+html.phone .lock img{
+	top: 1.5em;
+}
+html.phone #creditBalance{
+	border: 4px solid black;
+}
+html.phone label, html.phone .col_lead{
+	font-size: 0.3em;
+}
+
 @keyframes oscillate {
 	0% {
 		transform: translate(-50%, -50%);
