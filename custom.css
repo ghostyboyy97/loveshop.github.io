@@ -268,6 +268,7 @@ iframe.invisible{
 	font-family: pxl;
 	color: pink;
 	margin-bottom: 0.5em;
+	text-align: center;
 }
 .cta{
 	font-size: 0.5em;
@@ -408,6 +409,26 @@ html.phone input[type="radio"]{
 	height: 30px;
 	margin-right: 10px;
 }
+html.phone #intro_cover{
+	width: 8em;
+	height: 17em;
+	justify-content: unset;
+}
+html.phone #welcome{
+	width: 67%;
+	margin-top: 4em;
+}
+html.phone #cta1{
+	width: 80%;
+	margin-bottom: 0.25em;
+}
+html.phone #cta2{
+	width: 80%;
+}
+html.phone #desc span{
+	font-size: 0.75em;
+}
+
 
 @keyframes oscillate {
 	0% {

@@ -35,11 +35,11 @@ const YOUTUBE_LINKS = {
     confession__volume_on__dance_on__aaron_on__partner_betty__script_standard: "https://youtube.com/embed/82z6XTOoV1Q",
     confession__volume_off__dance_on__aaron_on__partner_betty__script_standard: "https://youtube.com/embed/eDTJkjoqYds",
     confession__volume_on__dance_off__aaron_off__partner_none__script_basic: "https://youtube.com/embed/8do6bGCNMmM",
-    confession__volume_off__dance_off__aaron_off__partner_none__script_basic: "https:/youtube.com/embed/ABN-fJOZeJA",
+    confession__volume_off__dance_off__aaron_off__partner_none__script_basic: "https://youtube.com/embed/ABN-fJOZeJA",
 	confession__volume_on__dance_off__aaron_off__partner_none__script_standard: "https://youtube.com/embed/8do6bGCNMmM",
-    confession__volume_off__dance_off__aaron_off__partner_none__script_standard: "https:/youtube.com/embed/ABN-fJOZeJA",
+    confession__volume_off__dance_off__aaron_off__partner_none__script_standard: "https://youtube.com/embed/ABN-fJOZeJA",
 	confession__volume_on__dance_off__aaron_off__partner_none__script_eloquent: "https://youtube.com/embed/8do6bGCNMmM",
-    confession__volume_off__dance_off__aaron_off__partner_none__script_eloquent: "https:/youtube.com/embed/ABN-fJOZeJA",
+    confession__volume_off__dance_off__aaron_off__partner_none__script_eloquent: "https://youtube.com/embed/ABN-fJOZeJA",
     confession__volume_on__dance_on__aaron_off__partner_betty__script_basic: "https://youtube.com/embed/VYMAfzcmEh8",
     confession__volume_off__dance_on__aaron_off__partner_betty__script_basic: "https://youtube.com/embed/f175lI_-WzM",
     confession__volume_on__dance_off__aaron_off__partner_betty__script_basic: "https://youtube.com/embed/fCsqUQ9GFek",
@@ -105,6 +105,12 @@ const YOUTUBE_LINKS = {
     proposal__volume_off__dance_on__aaron_off__partner_zara__chocolate_off__champagne_on: "https://youtube.com/embed/Mg5ak-6vRI0",
 	proposal__volume_on__dance_on__aaron_off__partner_zara__chocolate_on__champagne_on: "https://youtube.com/embed/4y2WkmenwT4",
     proposal__volume_off__dance_on__aaron_off__partner_zara__chocolate_on__champagne_on: "https://youtube.com/embed/L0FzyEldUQw",
+	proposal__volume_on__dance_off__aaron_on__partner_none__chocolate_on__champagne_off: "https://youtube.com/embed/DJN2JkVGMBs",
+    proposal__volume_off__dance_off__aaron_on__partner_none__chocolate_on__champagne_off: "https://youtube.com/embed/MWgjRBAMnJE",
+    proposal__volume_on__dance_off__aaron_on__partner_none__chocolate_off__champagne_on: "https://youtube.com/embed/DJN2JkVGMBs",
+    proposal__volume_off__dance_off__aaron_on__partner_none__chocolate_off__champagne_on: "https://youtube.com/embed/MWgjRBAMnJE",
+    proposal__volume_on__dance_off__aaron_on__partner_none__chocolate_on__champagne_on: "https://youtube.com/embed/DJN2JkVGMBs",
+    proposal__volume_off__dance_off__aaron_on__partner_none__chocolate_on__champagne_on: "https://youtube.com/embed/MWgjRBAMnJE",
 }
 
 let vidCounter = 0;
@@ -259,7 +265,6 @@ function clearHelp(clearTimers){
 
 }
 function showHelp(){
-	// clearHelp(true);
 	introCover.classList.add('active');
 	welcomeMsg.classList.add('active');
 	if (hasHelpShown){
@@ -273,10 +278,8 @@ function showHelp(){
 		welcomeDesc.classList.remove('out');
 		beginButton.classList.remove('active');
 		beginButton.classList.remove('out');
-
 		showHelpTimer = setTimeout(function(){
 			welcomeMsg.classList.add('active');
-
 			setTimeout(function(){
 				cta1.classList.add('active');
 				setTimeout(function(){
@@ -308,26 +311,9 @@ function showHelp(){
 			}, 150)
 		}, 150)
 	}
-
-	// showHelpTimer = setTimeout(function(){
-	// 	setTimeout(function(){
-	// 		cta1.classList.add('active');
-	// 		setTimeout(function(){
-	// 			cta2.classList.add('active');
-	// 			setTimeout(function(){
-	// 				welcomeDesc.classList.add('active');
-	// 				setTimeout(function(){
-	// 					beginButton.classList.add('active');
-	// 					hasHelpShown = true
-	// 				}, 150)
-	// 			}, 150)
-	// 		}, 150)
-	// 	}, 150)
-	// }, 150)
 }
 
 function hideHelp(){
-	// clearHelp(true);
 	hideHelpTimer = setTimeout(function(){
 		welcomeMsg.classList.add('out');
 		setTimeout(function(){
@@ -340,9 +326,6 @@ function hideHelp(){
 						beginButton.classList.add('out');
 						setTimeout(function(){
 							introCover.classList.remove('active');
-							// setTimeout(function(){
-							// 	clearHelp();
-							// }, 500)
 						}, 150)
 					}, 150)
 				}, 150)
@@ -460,14 +443,15 @@ function handleOption(node) {
 		submitButton.classList.remove('error')
 	}
 
+
 	if (state.story.value === "confession") {
 		proposalContainer.classList.add('invisible');
 		confessionContainer.classList.remove('invisible');
-	} else if (state.story.value === "proposal" && state.aaron.value === "on" && state.partner.value !== "none"){
-		proposalContainer.classList.remove('invisible');
+	} else if (state.story.value === "proposal" && (state.aaron.value !== "on" || state.partner.value === "none")){
+		proposalContainer.classList.add('invisible');
 		confessionContainer.classList.add('invisible');
 	} else {
-		proposalContainer.classList.add('invisible');
+		proposalContainer.classList.remove('invisible');
 		confessionContainer.classList.add('invisible');
 	}
 

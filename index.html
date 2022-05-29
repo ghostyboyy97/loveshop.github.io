@@ -3,6 +3,7 @@
 
 <head>
   <title>LOVESHOPLOVESHOP</title>
+  <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
   <link type="text/css" rel="stylesheet" href="custom.css">
   <script src="app.js" charset="utf-8"></script>
 </head>
@@ -77,9 +78,11 @@
           <label for="propose">Proposal (6 tokens)</label>
         </div>
   
-        <div class="col_label">Extras</div>
+        <!-- <div class="col_label">Extras</div> -->
         
         <div class="col" id="confessionContainer">
+          <div class="col_label">Script Quality</div>
+
           
           <div class="row">
             <input type="radio" checked id="scriptBasic" data-state="confession_script" name="script" value="basic"
@@ -99,6 +102,8 @@
         </div>
     
         <div class="col invisible" id="proposalContainer">
+          <div class="col_label">Props</div>
+
           <div class="row">
             <input type="checkbox" id="propChoc" data-state="prop_chocolate" value="on" data-credits="1">
           <label for="propChoc">Chocolates (1 token)</label>
