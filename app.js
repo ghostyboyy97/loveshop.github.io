@@ -447,12 +447,17 @@ function handleOption(node) {
 	if (state.story.value === "confession") {
 		proposalContainer.classList.add('invisible');
 		confessionContainer.classList.remove('invisible');
-	} else if (state.story.value === "proposal" && (state.aaron.value !== "on" || state.partner.value === "none")){
-		proposalContainer.classList.add('invisible');
-		confessionContainer.classList.add('invisible');
+
 	} else {
-		proposalContainer.classList.remove('invisible');
+		// proposal
 		confessionContainer.classList.add('invisible');
+
+		// if aaron off AND no costar, hide props as well
+		if (state.aaron.value === "off" && state.partner.value === "none"){
+			proposalContainer.classList.add('invisible');
+		} else {
+			proposalContainer.classList.remove('invisible');
+		}
 	}
 
 	let additionals;
